@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>زاد الطلاب - شراء الملازم الجامعية</title>
+<title>زاد الطلاب </title>
 <meta name="description" content="زاد الطلاب - شراء الملازم الجامعية لإدارة الأعمال سنة ثانية ترم ثاني في جامعة صنعاء بعد الدفع فقط عبر محفظة جيب.">
 <meta name="keywords" content="زاد الطلاب, ملازم جامعة صنعاء, إدارة أعمال, سنة ثانية, ترم ثاني, شراء كتب, محفظة جيب, اليمن">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body { font-family:'Cairo',sans-serif; margin:0; padding:0; background:#f7f7f7; color:#333; }
-header { background:#004080; color:#fff; text-align:center; padding:60px 20px; }
+header { background:#004080; color:#fff; text-align:center; padding:60px 20px; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
 header h1 { font-size:2.8em; margin-bottom:10px; }
 header p { font-size:1.3em; }
 #searchBar { max-width:600px; margin:20px auto; display:flex; justify-content:center; }
@@ -20,7 +20,7 @@ section { padding:50px 20px; max-width:1200px; margin:auto; }
 h2 { color:#004080; text-align:center; margin-bottom:40px; }
 .books { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
 .book { border-radius:15px; padding:25px 20px; text-align:center; color:#fff; font-weight:bold; width:220px; transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; position:relative; }
-.book:hover { transform: scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+.book:hover { transform: scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
 .book h3 { font-size:1.2em; margin-bottom:10px; }
 .book p { font-size:1em; margin-bottom:15px; }
 .book button { background:#fff; color:#004080; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-size:1em; transition: background 0.3s, color 0.3s; font-weight:bold; }
@@ -36,7 +36,8 @@ h2 { color:#004080; text-align:center; margin-bottom:40px; }
 table { width:100%; border-collapse:collapse; margin:30px auto; max-width:1000px; cursor:pointer; }
 table th, table td { border:1px solid #004080; padding:12px; text-align:center; }
 table th { background:#004080; color:#fff; }
-table td { background:#f0f8ff; }
+table td { background:#f0f8ff; transition:0.3s; }
+table tr:hover td { background:#cce7ff; }
 .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.7); }
 .modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:15px; width:90%; max-width:400px; text-align:center; }
 .close { color:#333; float:right; font-size:28px; font-weight:bold; cursor:pointer; }
@@ -46,13 +47,14 @@ footer { background:#001F4D; color:#fff; text-align:center; padding:25px 20px; m
 .social-icons a { color:#fff; text-decoration:none; font-size:2em; transition: color 0.3s, transform 0.3s; position:fixed; bottom:20px; right:20px; z-index:1000; }
 .social-icons a:hover { color:#00bfff; transform:scale(1.3); }
 @media(max-width:768px){ .books{ flex-direction:column; align-items:center;} }
+@media(max-width:480px){ .social-icons a { bottom:15px; right:15px; font-size:1.5em; } }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>زاد الطلاب</h1>
-    <p>شراء الملازم الجامعية بعد الدفع فقط عبر محفظة جيب</p>
+    <h1>زاد الطالب</h1>
+    <p>شراء الملازم الجامعية اصبح اسهل مع زاد الطالب</p>
 </header>
 
 <div id="searchBar">
@@ -62,22 +64,22 @@ footer { background:#001F4D; color:#fff; text-align:center; padding:25px 20px; m
 <section id="books">
     <h2>كتب وملازم إدارة الأعمال - سنة ثانية، ترم ثاني</h2>
     <div class="books" id="booksContainer">
-        <div class="book business1" data-name="مبادئ الإدارة">
+        <div class="book business1" data-name="مبادئ الإدارة" data-price="2500 ريال">
             <h3>مبادئ الإدارة</h3>
             <p>سعر: 2500 ريال</p>
             <button onclick="openModal('مبادئ الإدارة','2500 ريال')">شراء</button>
         </div>
-        <div class="book business2" data-name="إدارة الموارد البشرية">
+        <div class="book business2" data-name="إدارة الموارد البشرية" data-price="2200 ريال">
             <h3>إدارة الموارد البشرية</h3>
             <p>سعر: 2200 ريال</p>
             <button onclick="openModal('إدارة الموارد البشرية','2200 ريال')">شراء</button>
         </div>
-        <div class="book business3" data-name="المحاسبة الإدارية">
+        <div class="book business3" data-name="المحاسبة الإدارية" data-price="2300 ريال">
             <h3>المحاسبة الإدارية</h3>
             <p>سعر: 2300 ريال</p>
             <button onclick="openModal('المحاسبة الإدارية','2300 ريال')">شراء</button>
         </div>
-        <div class="book business4" data-name="الحزمة الكاملة">
+        <div class="book business4" data-name="الحزمة الكاملة" data-price="6500 ريال">
             <h3>الحزمة الكاملة</h3>
             <p>سعر: 6500 ريال</p>
             <button onclick="openModal('الحزمة الكاملة','6500 ريال')">شراء</button>
@@ -139,7 +141,7 @@ footer { background:#001F4D; color:#fff; text-align:center; padding:25px 20px; m
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
     <p id="modalText"></p>
-    <button onclick="confirmPayment()">تأكيد</button>
+    <button onclick="confirmPayment(true)">تأكيد</button>
   </div>
 </div>
 
@@ -156,7 +158,7 @@ function openModal(bookName, price) {
 function closeModal() { document.getElementById('modal').style.display="none"; }
 window.onclick=function(event){ if(event.target==document.getElementById('modal')){ closeModal(); } }
 
-function confirmPayment(){
+function confirmPayment(fromModal=false){
     const studentName=document.getElementById('studentName').value.trim();
     const studentPhone=document.getElementById('studentPhone').value.trim();
     const book=document.getElementById('bookSelect').value;
@@ -165,7 +167,7 @@ function confirmPayment(){
     const whatsappUrl="https://wa.me/967783255801?text="+encodeURIComponent(message);
     window.open(whatsappUrl,"_blank");
     alert("تم إرسال طلبك إلى المسؤول. بعد الموافقة، سيرسل لك الرابط الخاص بالتحميل عبر WhatsApp.");
-    closeModal();
+    if(fromModal) closeModal();
 }
 
 document.getElementById('searchInput').addEventListener('keyup',function(){
@@ -173,11 +175,11 @@ document.getElementById('searchInput').addEventListener('keyup',function(){
     const books=document.querySelectorAll('.books .book');
     books.forEach(b=>{
         const name=b.getAttribute('data-name').toLowerCase();
-        b.style.display=name.includes(filter)?'block':'none';
+        const price=b.getAttribute('data-price').toLowerCase();
+        b.style.display=(name.includes(filter) || price.includes(filter))?'block':'none';
     });
 });
 </script>
 
 </body>
 </html>
-
