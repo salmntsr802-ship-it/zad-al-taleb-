@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>زاد الطلاب - شراء الملازم الجامعية</title>
+<meta name="description" content="زاد الطلاب - شراء الملازم الجامعية لإدارة الأعمال سنة ثانية ترم ثاني في جامعة صنعاء بعد الدفع فقط عبر محفظة جيب.">
+<meta name="keywords" content="زاد الطلاب, ملازم جامعة صنعاء, إدارة أعمال, سنة ثانية, ترم ثاني, شراء كتب, محفظة جيب, اليمن">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family:'Cairo',sans-serif; margin:0; padding:0; background:#f7f7f7; color:#333; }
+header { background:#004080; color:#fff; text-align:center; padding:60px 20px; }
+header h1 { font-size:2.8em; margin-bottom:10px; }
+header p { font-size:1.3em; }
+#searchBar { max-width:600px; margin:20px auto; display:flex; justify-content:center; }
+#searchBar input { width:100%; padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+section { padding:50px 20px; max-width:1200px; margin:auto; }
+h2 { color:#004080; text-align:center; margin-bottom:40px; }
+.books { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.book { border-radius:15px; padding:25px 20px; text-align:center; color:#fff; font-weight:bold; width:220px; transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; position:relative; }
+.book:hover { transform: scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+.book h3 { font-size:1.2em; margin-bottom:10px; }
+.book p { font-size:1em; margin-bottom:15px; }
+.book button { background:#fff; color:#004080; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-size:1em; transition: background 0.3s, color 0.3s; font-weight:bold; }
+.book button:hover { background:#001F4D; color:#fff; }
+.business1 { background:#6A5ACD; }
+.business2 { background:#FF8C00; }
+.business3 { background:#20B2AA; }
+.business4 { background:#DC143C; }
+.purchase-form { background:#fff; padding:30px; border-radius:15px; max-width:500px; margin:50px auto; box-shadow:0 5px 20px rgba(0,0,0,0.1); }
+.purchase-form input, .purchase-form select, .purchase-form button { width:100%; margin:10px 0; padding:12px; font-size:1em; border-radius:8px; border:1px solid #ccc; }
+.purchase-form button { background:#004080; color:#fff; border:none; cursor:pointer; transition:background 0.3s; }
+.purchase-form button:hover { background:#001F4D; }
+table { width:100%; border-collapse:collapse; margin:30px auto; max-width:1000px; cursor:pointer; }
+table th, table td { border:1px solid #004080; padding:12px; text-align:center; }
+table th { background:#004080; color:#fff; }
+table td { background:#f0f8ff; }
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.7); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:15px; width:90%; max-width:400px; text-align:center; }
+.close { color:#333; float:right; font-size:28px; font-weight:bold; cursor:pointer; }
+.close:hover { color:#000; }
+.modal button { margin-top:15px; }
+footer { background:#001F4D; color:#fff; text-align:center; padding:25px 20px; margin-top:40px; position:relative; }
+.social-icons a { color:#fff; text-decoration:none; font-size:2em; transition: color 0.3s, transform 0.3s; position:fixed; bottom:20px; right:20px; z-index:1000; }
+.social-icons a:hover { color:#00bfff; transform:scale(1.3); }
+@media(max-width:768px){ .books{ flex-direction:column; align-items:center;} }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>زاد الطلاب</h1>
+    <p>شراء الملازم الجامعية بعد الدفع فقط عبر محفظة جيب</p>
+</header>
+
+<div id="searchBar">
+    <input type="text" id="searchInput" placeholder="ابحث عن الكتاب أو الملزمة...">
+</div>
+
+<section id="books">
+    <h2>كتب وملازم إدارة الأعمال - سنة ثانية، ترم ثاني</h2>
+    <div class="books" id="booksContainer">
+        <div class="book business1" data-name="مبادئ الإدارة">
+            <h3>مبادئ الإدارة</h3>
+            <p>سعر: 2500 ريال</p>
+            <button onclick="openModal('مبادئ الإدارة','2500 ريال')">شراء</button>
+        </div>
+        <div class="book business2" data-name="إدارة الموارد البشرية">
+            <h3>إدارة الموارد البشرية</h3>
+            <p>سعر: 2200 ريال</p>
+            <button onclick="openModal('إدارة الموارد البشرية','2200 ريال')">شراء</button>
+        </div>
+        <div class="book business3" data-name="المحاسبة الإدارية">
+            <h3>المحاسبة الإدارية</h3>
+            <p>سعر: 2300 ريال</p>
+            <button onclick="openModal('المحاسبة الإدارية','2300 ريال')">شراء</button>
+        </div>
+        <div class="book business4" data-name="الحزمة الكاملة">
+            <h3>الحزمة الكاملة</h3>
+            <p>سعر: 6500 ريال</p>
+            <button onclick="openModal('الحزمة الكاملة','6500 ريال')">شراء</button>
+        </div>
+    </div>
+</section>
+
+<section id="purchase">
+    <h2>نموذج الطلب والدفع</h2>
+    <div class="purchase-form">
+        <input type="text" id="studentName" placeholder="اسمك" required>
+        <input type="text" id="studentPhone" placeholder="رقم الهاتف" required>
+        <select id="bookSelect">
+            <option value="">اختر الكتاب/ الملزمة</option>
+            <option value="مبادئ الإدارة">مبادئ الإدارة - 2500 ريال</option>
+            <option value="إدارة الموارد البشرية">إدارة الموارد البشرية - 2200 ريال</option>
+            <option value="المحاسبة الإدارية">المحاسبة الإدارية - 2300 ريال</option>
+            <option value="الحزمة الكاملة">الحزمة الكاملة - 6500 ريال</option>
+        </select>
+        <input type="text" value="املأ الحقول ثم اضغط على تأكيد للتحويلك للمسؤول" readonly>
+        <button onclick="confirmPayment()">تأكيد</button>
+    </div>
+</section>
+
+<section id="references">
+    <h2>قائمة المراجع والملازم المقترحة</h2>
+    <table>
+        <tr>
+            <th>المقرر</th>
+            <th>المرجع / الكتاب المقترح</th>
+        </tr>
+        <tr onclick="openModal('مبادئ الإدارة','2500 ريال')">
+            <td>بحوث العمليات</td>
+            <td>📊 مبادئ الإدارة</td>
+        </tr>
+        <tr onclick="openModal('إدارة الموارد البشرية','2200 ريال')">
+            <td>إدارة الموارد البشرية</td>
+            <td>👥 إدارة الموارد البشرية</td>
+        </tr>
+        <tr onclick="openModal('المحاسبة الإدارية','2300 ريال')">
+            <td>إدارة التسويق 2</td>
+            <td>📣 المحاسبة الإدارية</td>
+        </tr>
+        <tr onclick="openModal('الحزمة الكاملة','6500 ريال')">
+            <td>جميع المقررات</td>
+            <td>📚 الحزمة الكاملة لجميع الملازم</td>
+        </tr>
+    </table>
+</section>
+
+<footer>
+    <p>حقوق النشر &copy; 2025 زاد الطلاب</p>
+    <div class="social-icons">
+        <a href="https://wa.me/967783255801" target="_blank">💬</a>
+    </div>
+</footer>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p id="modalText"></p>
+    <button onclick="confirmPayment()">تأكيد</button>
+  </div>
+</div>
+
+<script>
+function openModal(bookName, price) {
+    const modalText = `الكتاب/الملزمة: ${bookName}\nالسعر: ${price}\n\nاملأ الحقول ثم اضغط على تأكيد للتحويلك إلى المسؤول.`;
+    document.getElementById('modalText').innerText = modalText;
+    document.getElementById('modal').style.display = "block";
+    const options = document.getElementById('bookSelect').options;
+    for(let i=0;i<options.length;i++){
+        if(options[i].text.includes(bookName)){ options[i].selected=true; break; }
+    }
+}
+function closeModal() { document.getElementById('modal').style.display="none"; }
+window.onclick=function(event){ if(event.target==document.getElementById('modal')){ closeModal(); } }
+
+function confirmPayment(){
+    const studentName=document.getElementById('studentName').value.trim();
+    const studentPhone=document.getElementById('studentPhone').value.trim();
+    const book=document.getElementById('bookSelect').value;
+    if(!studentName || !studentPhone || !book){ alert("يرجى ملء جميع الحقول."); return; }
+    const message=`مرحبا، أنا ${studentName} برقم ${studentPhone}، أريد شراء الكتاب/الملازمة: ${book}.`;
+    const whatsappUrl="https://wa.me/967783255801?text="+encodeURIComponent(message);
+    window.open(whatsappUrl,"_blank");
+    alert("تم إرسال طلبك إلى المسؤول. بعد الموافقة، سيرسل لك الرابط الخاص بالتحميل عبر WhatsApp.");
+    closeModal();
+}
+
+document.getElementById('searchInput').addEventListener('keyup',function(){
+    const filter=this.value.toLowerCase();
+    const books=document.querySelectorAll('.books .book');
+    books.forEach(b=>{
+        const name=b.getAttribute('data-name').toLowerCase();
+        b.style.display=name.includes(filter)?'block':'none';
+    });
+});
+</script>
+
+</body>
+</html>
